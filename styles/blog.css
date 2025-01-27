@@ -105,11 +105,46 @@
 }
 
 .blog-content pre {
-  background-color: #1a1a1a;
+  background-color: rgba(103, 58, 183, 0.1);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
   margin: 1.5rem 0;
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.blog-content pre .copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  opacity: 0.6;
+  font-family: "Material Icons";
+  font-size: 18px;
+}
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
+}
+
+.blog-content pre .copy-button:hover {
+  opacity: 1;
+}
+
+.blog-content pre .copy-button.copied {
+  background-color: #4caf50;
 }
 
 .blog-content pre code {

@@ -45,6 +45,28 @@ async function loadBlogPost() {
             <div class="blog-post-meta">${post.date}</div>
             ${content}
         `;
+
+    // Add copy buttons to code blocks
+    document.querySelectorAll("pre").forEach((pre) => {
+      const copyButton = document.createElement("button");
+      copyButton.className = "copy-button";
+      copyButton.textContent = "content_copy";
+
+      copyButton.addEventListener("click", async () => {
+        const code = pre.querySelector("code")?.textContent || pre.textContent;
+        await navigator.clipboard.writeText(code);
+
+        copyButton.textContent = "check";
+        copyButton.classList.add("copied");
+
+        setTimeout(() => {
+          copyButton.textContent = "content_copy";
+          copyButton.classList.remove("copied");
+        }, 2000);
+      });
+
+      pre.appendChild(copyButton);
+    });
   } catch (error) {
     console.error("Error loading blog post:", error);
     document.getElementById("blog-content").innerHTML =
