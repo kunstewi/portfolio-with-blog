@@ -105,11 +105,37 @@
 }
 
 .blog-content pre {
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, #2a1f3d, #1a1a1a);
   padding: 1rem;
   border-radius: 8px;
   overflow-x: auto;
   margin: 1.5rem 0;
+  position: relative;
+}
+
+.blog-content pre .copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.blog-content pre .copy-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.blog-content pre .copy-button.copied {
+  background: #4caf50;
 }
 
 .blog-content pre code {
